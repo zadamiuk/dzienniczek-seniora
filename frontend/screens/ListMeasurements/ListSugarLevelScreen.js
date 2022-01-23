@@ -16,9 +16,9 @@ export const ListSugarLevelScreen = ({ navigation }) => {
   
   return (
     <View>
-      {/* <SugarChart
+      { data.length ? <SugarChart
         data={data}
-      /> */}
+      /> : <></> }
       <SugarTableComponent
         data={data}
         navigation={navigation}

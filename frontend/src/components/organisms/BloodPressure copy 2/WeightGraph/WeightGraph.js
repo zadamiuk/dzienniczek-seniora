@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { LineChart, YAxis, XAxis, Grid } from 'react-native-svg-charts'
 import { View, ScrollView } from 'react-native';
 import { styles } from './WeightGraph.styles'
+import { VictoryChart, VictoryAxis, VictoryLine, VictoryZoomContainer, VictoryTooltip, VictoryLabel } from "victory-native";
+
 
 export const WeightChart = ({ data }) => {
   const yLabels = data.map(
@@ -10,54 +11,51 @@ export const WeightChart = ({ data }) => {
   const yMin = Math.min.apply(null, yLabels) - 10;
   const yMax = Math.max.apply(null, yLabels) + 10;
 
-  const xLabels = data.map(
-    (measurement) => {
-      const date = new Date(measurement.date)
-      const stringDate = `${date.getDate()}.${date.getMonth()+1}`
-      return stringDate;
-    }
-  );
+  const formattedData = 
+    data?.map((measurement) => {
+      return { x: new Date(measurement.date), y: Number(measurement.weight_value) }
+    })
+  
+  console.log(formattedData)
 
-    const contentInset = { top: 20, bottom: 20 }
     return (
-      <View style={styles.chartContainer}>
-        <YAxis
-              data={yLabels}
-              contentInset={contentInset}
-              svg={styles.axis}
-              numberOfTicks={yLabels.length}
-              formatLabel={(value) => `${value}`}
-              style={styles.yAxis}
-              min={yMin}
-              max={yMax}
-              spacingInner={0.5}
+      <VictoryChart 
+        width={400} 
+        containerComponent={
+          <VictoryZoomContainer
+            allowZoom={false}
+            allowPan={true}
           />
-      <ScrollView horizontal style={styles.scrollableContainer}>
-          <View>
-          <LineChart
-              style={styles.chart}
-              data={yLabels}
-              svg={{ stroke: 'blue' }}
-              spacing={0.2}
-              numberOfTicks={5}
-              gridMin={0}
-              spacingInner={0.5}  
-              contentInset={contentInset}
-              gridMin={yMin}
-              gridmax={yMax}
-          >
-              <Grid />
-          </LineChart>
-          <View>
-          <XAxis
-            data={ xLabels }
-            contentInset={{ left: 10, right: 10 }}
-            svg={styles.axis}
-            numberOfTicks={5}
-            style={styles.xAxis}
-            formatLabel={(value) => xLabels[value] }
-          />
-          </View></View>
-      </ScrollView></View>
+        }
+        domainPadding={{ x: 10, y: 10 }}
+      >
+        <VictoryAxis 
+          dependentAxis 
+          tickCount={4} 
+          style={
+            { grid : { stroke: "#BEBEBE" }}
+          } 
+        />
+        <VictoryAxis 
+          crossAxis 
+          tickFormat={(x) => {
+            const date = new Date(x);
+            const day = date.getDay() < 10 ? "0" + date.getDay() : date.getDay()
+            const month = (date.getMonth() + 1) < 10 ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1)
+            return day + "." + month
+          }}
+          style={
+            { grid : { stroke: "#BEBEBE" }}
+          } 
+        />
+        <VictoryLine
+          style={{
+            data: { stroke: "#c43a31" },
+            parent: { border: "1px solid #ccc"},
+          }}
+          data={formattedData}
+        />
+        
+      </VictoryChart>
   );
   }

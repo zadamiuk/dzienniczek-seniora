@@ -16,9 +16,9 @@ export const ListWeightScreen = ({ navigation }) => {
 
   return (
     <View>
-      {/* <WeightChart
+      { data.length ? <WeightChart
         data={data}
-      /> */}
+      /> : <></> }
       <WeightTableComponent
         data={data}
         navigation={navigation}

@@ -1,31 +1,49 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
-import { VictoryBar, VictoryChart, VictoryTheme } from "victory-native";
+import { StyleSheet, ScrollView } from "react-native";
+import { VictoryChart, VictoryAxis, VictoryLine, VictoryZoomContainer, VictoryTooltip } from "victory-native";
 
-const data = [
-  { quarter: 1, earnings: 13000 },
-  { quarter: 2, earnings: 16500 },
-  { quarter: 3, earnings: 14250 },
-  { quarter: 4, earnings: 19000 }
-];
+export const Test = () => {
 
-export default class App extends React.Component {
-  render() {
     return (
-      <View style={styles.container}>
-        <VictoryChart width={350} theme={VictoryTheme.material}>
-          <VictoryBar data={data} x="quarter" y="earnings" />
-        </VictoryChart>
-      </View>
+      <VictoryChart 
+        width={400} 
+        containerComponent={
+          <VictoryZoomContainer
+          allowZoom={false}
+          allowPan={true}
+          />
+        }
+        domainPadding={{ x: 50 }}
+      >
+        <VictoryAxis dependentAxis tickCount={4} style={
+                    { grid : { stroke: "#BEBEBE" }}
+                } />
+        <VictoryAxis crossAxis tickCount={4} style={
+                    { grid : { stroke: "#BEBEBE" }}
+                } />
+        <VictoryLine
+          labelComponent={<VictoryTooltip
+            cornerRadius={({ datum }) => datum.x > 6 ? 0 : 20}
+            pointerLength={({ datum }) => datum.y > 0 ? 5 : 20}
+            flyoutStyle={{
+              stroke: ({ datum }) => datum.x === 10
+                ? "tomato"
+                : "black"
+            }}
+          />}
+          style={{
+            data: { stroke: "#c43a31" },
+            parent: { border: "1px solid #ccc"},
+          }}
+          data={[
+            { x: 1, y: 2 },
+            { x: 2, y: 3 },
+            { x: 3, y: 5 },
+            { x: 4, y: 4 },
+            { x: 5, y: 7 },
+          ]}
+        />
+        
+      </VictoryChart>
     );
-  }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#f5fcff"
-  }
-});

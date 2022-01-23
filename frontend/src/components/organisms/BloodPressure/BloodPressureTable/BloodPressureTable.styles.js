@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
     scrollView: {
         width: '90%',
+        height: '50%',
         marginLeft: 15,
         marginTop: 10
     },

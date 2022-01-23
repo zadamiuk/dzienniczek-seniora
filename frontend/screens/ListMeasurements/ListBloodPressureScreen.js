@@ -17,9 +17,9 @@ export const ListBloodPressureScreen = ({ navigation }) => {
 
   return (
     <View>
-      {/* <BloodPressureChart
+      { data.length ? <BloodPressureChart
         data={data}
-      /> */}
+      /> : <></> }
       <BloodPressureTableComponent
         data={data}
         navigation={navigation}
