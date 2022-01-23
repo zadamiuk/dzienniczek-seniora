@@ -1,0 +1,12 @@
+import { StyleSheet } from 'react-native';
+
+export const styles = StyleSheet.create({
+    root: {
+        flex: 1, 
+        alignItems: 'center',
+    },
+    dataTable: {
+        margin: 10,
+        width: '90%',
+    },
+});
