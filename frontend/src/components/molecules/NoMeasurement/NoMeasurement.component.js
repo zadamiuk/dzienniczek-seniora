@@ -10,7 +10,7 @@ const types = {
   'weight': 'AddWeight'
 }
 
-export const NoMeasurement = ({ type, navigation, supervised, button = true }) => {
+export const NoMeasurement = ({ type, navigation, supervised = false, button = true }) => {
   return (
     <View style={styles.view}>
       <Text style={styles.none}>Brak wyników</Text>

@@ -1,20 +1,23 @@
-import React, { useState } from 'react';
-import { View, ScrollView, Text } from 'react-native';
+import React from 'react';
+import { View, Text } from 'react-native';
 import { styles } from './SugarGraph.styles'
-import { VictoryChart, VictoryAxis, VictoryLine, VictoryZoomContainer, VictoryTooltip, VictoryLabel } from "victory-native";
+import { VictoryChart, VictoryAxis, VictoryLine, VictoryZoomContainer } from "victory-native";
 import { MIN_SUGAR, MAX_SUGAR } from '../../../../../config/constsForMeasurements';
 
 export const SugarChart = ({ data, month }) => {
 
-  const dataAll = data?.map((measurement) => { return { x: measurement.date, y: Number(measurement.systolic) }})
-  const formattedData = dataAll.filter(coords => Number(coords.x.toString().slice(5,7)) === month)
+  const dataAll = data?.map((measurement) => { return { x: measurement.date, y: Number(measurement.level) }})
+  const formattedData = month !== 0
+    ? dataAll.filter(coords => Number(coords.x.toString().slice(5,7)) === month)
+    : dataAll
 
   const height = 200
   const width = 420
 
   return (
       <>
-      <Text style={styles.title}>Poziom glukozy we krwi</Text>
+      <View style={styles.chartContainer}>
+      <Text style={styles.title}>Poziom cukru we krwi</Text>
       { formattedData.length ? (
           <VictoryChart 
             width={width}
@@ -53,8 +56,9 @@ export const SugarChart = ({ data, month }) => {
               data={formattedData}
             />
           </VictoryChart>
-        ) : ( <Text>Brak wyników w tym miesiącu</Text> ) 
+        ) : ( <Text style={styles.noData}>Brak wyników w tym miesiącu</Text> ) 
       }
+      </View>
       </>
   )
 }

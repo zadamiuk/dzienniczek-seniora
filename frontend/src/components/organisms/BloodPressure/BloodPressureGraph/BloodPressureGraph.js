@@ -1,19 +1,27 @@
-import React, { useState } from 'react';
-import { View, ScrollView, Text } from 'react-native';
+import React from 'react';
+import { View, Text } from 'react-native';
 import { styles } from './BloodPressureGraph.styles'
-import { VictoryChart, VictoryAxis, VictoryLine, VictoryZoomContainer, VictoryTooltip, VictoryLabel } from "victory-native";
+import { VictoryChart, VictoryAxis, VictoryLine, VictoryZoomContainer } from "victory-native";
 import { MAX_SYSTOLIC, MIN_SYSTOLIC, MIN_DIASTOLIC, MAX_DIASTOLIC, MIN_PULSE, MAX_PULSE } from '../../../../../config/constsForMeasurements';
 
 export const BloodPressureChart = ({ data, month }) => {
 
   const sysDataAll = data?.map((measurement) => { return { x: measurement.date, y: Number(measurement.systolic) }})
-  const formattedDataSys = sysDataAll.filter(coords => Number(coords.x.toString().slice(5,7)) === month)
+  const formattedDataSys = month !== 0
+    ? sysDataAll.filter(coords => Number(coords.x.toString().slice(5,7)) === month)
+    : sysDataAll
 
   const diaDataAll = data?.map((measurement) => { return { x: measurement.date, y: Number(measurement.diastolic) }})
-  const formattedDataDia = diaDataAll.filter(coords => Number(coords.x.toString().slice(5,7)) === month)
+  const formattedDataDia = month !== 0 
+    ? diaDataAll.filter(coords => Number(coords.x.toString().slice(5,7)) === month)
+    : diaDataAll
 
   const pulseDataAll = data?.map((measurement) => { return { x: measurement.date, y: Number(measurement.diastolic) }})
-  const formattedDataPulse = pulseDataAll.filter(coords => Number(coords.x.toString().slice(5,7)) === month)
+  const formattedDataPulse = month !== 0 
+    ? pulseDataAll.filter(coords => Number(coords.x.toString().slice(5,7)) === month)
+    : pulseDataAll
+
+    console.log(formattedDataDia)
 
     const height = 200
     const width = 420

@@ -31,6 +31,6 @@ export const styles = StyleSheet.create({
         fontSize: 18,
     },
     scroll: {
-        height: 400
+        height: '100%'
     }
 });

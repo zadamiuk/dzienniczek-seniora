@@ -16,19 +16,27 @@ export const ListOfSeniorsScreen = ({ navigation }) => {
   } , [isFocused])
 
     const SeniorTableData = () => {
-        return data.map((senior) => {
+        return data.map((senior, key) => {
           const params = {
             id: senior.id,
             name: senior.name,
             email: senior.email,
           }
           return (
-            <DataTable.Row onPress={() => navigation.navigate('SeniorDetail', params)}>
-              <DataTable.Cell>{senior.name}</DataTable.Cell>
-              <DataTable.Cell>{senior.email}</DataTable.Cell>
-              <DataTable.Cell>
+            <DataTable.Row 
+              onPress={() => navigation.navigate('SeniorDetail', params)} 
+              style={styles.row}
+              key={key}
+            >
+              <DataTable.Cell style={styles.nameWrapper}>
+                <Text style={styles.cell}>{senior.name}</Text>
+              </DataTable.Cell>
+              <DataTable.Cell style={styles.emailWrapper}>
+                <Text style={styles.emailCell}>{senior.email}</Text>
+              </DataTable.Cell>
+              <DataTable.Cell style={styles.cellIcon}>
                 <IconButton
-                    icon="book-open-variant"
+                    icon="account-search"
                     color={'#1AA7EC'}
                     size={30}
                     onPress={() => navigation.navigate('SeniorDetail', params)}
@@ -42,10 +50,13 @@ export const ListOfSeniorsScreen = ({ navigation }) => {
     return (
       <View style={styles.root}>
         <DataTable style={styles.dataTable}>
-            <DataTable.Header>
-                <DataTable.Title>Imię</DataTable.Title>
-                <DataTable.Title>Adres e-mail</DataTable.Title>
-                <DataTable.Title></DataTable.Title>
+            <DataTable.Header style={styles.header}>
+                <DataTable.Title style={styles.nameWrapper}>
+                  <Text style={styles.title}>Imię</Text>
+                </DataTable.Title>
+                <DataTable.Title style={styles.emailWrapper}>
+                  <Text style={styles.title}>Adres e-mail</Text>
+                </DataTable.Title>
             </DataTable.Header>
             {SeniorTableData()}
         </DataTable>
