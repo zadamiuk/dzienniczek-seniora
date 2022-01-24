@@ -40,7 +40,7 @@ export const refreshToken = async ({ navigation }) => {
     setConfig(token);
   })
   .catch(error => {
-    if (error?.response?.status === 400) {
+    if (error?.response?.status === 401) {
       navigation.navigate('SignIn')
       errorToast('Wymagane ponowne logowanie.')
     }

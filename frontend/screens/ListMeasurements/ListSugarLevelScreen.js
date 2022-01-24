@@ -18,6 +18,7 @@ export const ListSugarLevelScreen = ({ navigation }) => {
     <View>
       { data.length ? <SugarChart
         data={data}
+        month={month}
       /> : <></> }
       <SugarTableComponent
         data={data}

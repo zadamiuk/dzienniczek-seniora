@@ -10,11 +10,11 @@ const types = {
   'weight': 'AddWeight'
 }
 
-export const NoMeasurement = ({ type, navigation, supervised }) => {
+export const NoMeasurement = ({ type, navigation, supervised, button = true }) => {
   return (
     <View style={styles.view}>
       <Text style={styles.none}>Brak wyników</Text>
-      { !supervised && 
+      { !supervised && button && 
         <SmallAddButton 
           label="Dodaj pomiar"
           onPress={() => navigation.navigate(types[type])}

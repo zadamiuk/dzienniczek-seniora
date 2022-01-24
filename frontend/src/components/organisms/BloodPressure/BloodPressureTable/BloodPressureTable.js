@@ -1,29 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { DataTable } from 'react-native-paper';
 import { styles } from './BloodPressureTable.styles'
 import { View, ScrollView, Text } from 'react-native';
 import { NoMeasurement } from '../../../molecules/NoMeasurement/NoMeasurement.component';
 
 
-  export const BloodPressureTableComponent = ({ data, navigation, supervised = false }) => {
+  export const BloodPressureTableComponent = ({ data, navigation, month, supervised = false }) => {
+    const [isAnyFilteredData, setIsAnyFilteredData] = useState(false)
+    const [currMonth, setCurrMonth] = useState(0)
+
+    const today = new Date()
+    if (currMonth !== month){
+      setIsAnyFilteredData(false);
+      for (let i=0; i < data?.length; i++) {
+        if (Number(data[i].date.toString().slice(5,7)) === month) {
+          console.log('jestem')
+          setIsAnyFilteredData(true);
+          break;
+        }
+      }
+      setCurrMonth(month)
+    }
+
     const BloodPressureTable = () => {
         return data.map((measurement, key) => {
-          return (
-            <DataTable.Row key={key}>
-              <DataTable.Cell style={{flex: 2}}>
-                <Text style={styles.cell}>{measurement.date}</Text>
-              </DataTable.Cell>
-              <DataTable.Cell>
-                <Text style={styles.cell}>{measurement.systolic}</Text>
-              </DataTable.Cell>
-              <DataTable.Cell>
-                <Text style={styles.cell}>{measurement.diastolic}</Text>
-              </DataTable.Cell>
-              <DataTable.Cell>
-                <Text style={styles.cell}>{measurement.pulse}</Text>
-              </DataTable.Cell>
-            </DataTable.Row>
-          );
+          if (Number(measurement.date.toString().slice(5,7)) === month) {
+            return (
+              <DataTable.Row key={key}>
+                <DataTable.Cell style={{flex: 2}}>
+                  <Text style={styles.cell}>{measurement.date}</Text>
+                </DataTable.Cell>
+                <DataTable.Cell>
+                  <Text style={styles.cell}>{measurement.systolic}</Text>
+                </DataTable.Cell>
+                <DataTable.Cell>
+                  <Text style={styles.cell}>{measurement.diastolic}</Text>
+                </DataTable.Cell>
+                <DataTable.Cell>
+                  <Text style={styles.cell}>{measurement.pulse}</Text>
+                </DataTable.Cell>
+              </DataTable.Row>
+            );
+          }
         });
       }
 
@@ -44,7 +62,14 @@ import { NoMeasurement } from '../../../molecules/NoMeasurement/NoMeasurement.co
                 <Text style={styles.title}>Puls</Text>
               </DataTable.Title>
             </DataTable.Header>
-            { data.length ? BloodPressureTable() : <NoMeasurement type="blood-pressure" navigation={navigation} supervised={supervised}/>}
+            { (data.length && isAnyFilteredData) 
+              ? BloodPressureTable() 
+              : <NoMeasurement 
+                  type="blood-pressure" 
+                  navigation={navigation} 
+                  supervised={supervised}
+                  button={(today.getMonth() + 1) === month ? true : false}/>
+            }
             </DataTable>
       </ScrollView>
     );

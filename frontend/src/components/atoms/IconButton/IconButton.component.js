@@ -6,11 +6,11 @@ import Icon from 'react-native-vector-icons/Feather';
 export const IconButton = ({ label, onPress, icon }) => {
   return (
     <Icon.Button
-      name="clock"
+      name={icon}
       style={styles.iconButton}
       onPress={() => onPress()}
     > 
-      <Text style={styles.text}>Zmień godzinę</Text>
+      <Text style={styles.text}>{label}</Text>
     </Icon.Button>
   );
 };

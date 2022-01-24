@@ -50,7 +50,7 @@ export const NotificationScreen = ({ navigation }) => {
       <View style={styles.root}>
         <CustomText text="Obecna godzina przypomnień:" />
           <TimeDisplay hour={hour} minutes={minutes} />
-          <IconButton icon="rocket" label="Zmień godzinę przypomnienia" onPress={() => setPickerVisibility(true)} />
+          <IconButton icon="clock" label="Zmień godzinę przypomnienia" onPress={() => setPickerVisibility(true)} />
           { pickerVisibility && <DateTimePicker
             testID="dateTimePicker"
             value={currentSchedule}
