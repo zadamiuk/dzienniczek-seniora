@@ -15,8 +15,7 @@ export const WeightChart = ({ data }) => {
     data?.map((measurement) => {
       return { x: new Date(measurement.date), y: Number(measurement.weight_value) }
     })
-  
-  console.log(formattedData)
+
 
     return (
       <VictoryChart 

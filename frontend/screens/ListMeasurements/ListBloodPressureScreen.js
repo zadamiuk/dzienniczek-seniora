@@ -11,7 +11,7 @@ import { styles } from './ListMeasurements.styles'
 export const ListBloodPressureScreen = ({ navigation }) => {
   const [data, setData] = useState([])
   const today = new Date();
-  const [month, setMonth] = useState(today.getMonth() + 1);
+  const [month, setMonth] = useState(0);
   const [expanded, setExpanded] = useState(false);
   const [visible, setVisible] = useState(false);
 

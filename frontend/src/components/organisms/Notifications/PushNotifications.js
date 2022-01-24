@@ -33,7 +33,6 @@ export const ScheduledPushNotification = () => {
 
     const scheduledNotification = (hour, minutes) => {
     const today = new Date()
-    console.log("dodano")
     if (today.getHours() > hour || (today.getHours() === hour && today.getMinutes() < minutes )) {
         PushNotification.localNotificationSchedule({
         channelId: "main-channel",

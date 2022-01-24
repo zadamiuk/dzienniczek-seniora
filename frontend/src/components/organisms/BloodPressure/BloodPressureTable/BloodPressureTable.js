@@ -7,14 +7,13 @@ import { NoMeasurement } from '../../../molecules/NoMeasurement/NoMeasurement.co
 
   export const BloodPressureTableComponent = ({ data, navigation, month, supervised = false }) => {
     const [isAnyFilteredData, setIsAnyFilteredData] = useState(false)
-    const [currMonth, setCurrMonth] = useState(0)
+    const [currMonth, setCurrMonth] = useState(100)
 
     const today = new Date()
     if (currMonth !== month){
       setIsAnyFilteredData(false);
       for (let i=0; i < data?.length; i++) {
         if (Number(data[i].date.toString().slice(5,7)) === month) {
-          console.log('jestem')
           setIsAnyFilteredData(true);
           break;
         }
@@ -24,7 +23,7 @@ import { NoMeasurement } from '../../../molecules/NoMeasurement/NoMeasurement.co
 
     const BloodPressureTable = () => {
         return data.map((measurement, key) => {
-          if (Number(measurement.date.toString().slice(5,7)) === month) {
+          if (month === 0 || Number(measurement.date.toString().slice(5,7)) === month) {
             return (
               <DataTable.Row key={key}>
                 <DataTable.Cell style={{flex: 2}}>
@@ -62,7 +61,7 @@ import { NoMeasurement } from '../../../molecules/NoMeasurement/NoMeasurement.co
                 <Text style={styles.title}>Puls</Text>
               </DataTable.Title>
             </DataTable.Header>
-            { (data.length && isAnyFilteredData) 
+            { ((data.length && isAnyFilteredData) || month === 0)
               ? BloodPressureTable() 
               : <NoMeasurement 
                   type="blood-pressure" 
