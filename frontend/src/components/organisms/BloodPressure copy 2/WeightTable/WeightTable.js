@@ -48,7 +48,7 @@ import { NoMeasurement } from '../../../molecules/NoMeasurement/NoMeasurement.co
                 <Text style={styles.title}>Waga</Text>
               </DataTable.Title>
             </DataTable.Header>
-            { ((data.length && isAnyFilteredData) || month === 0)
+            { ((data.length && isAnyFilteredData) || (month === 0 && data.length ))
               ? WeightTable() 
               : <NoMeasurement 
                   type="sugar" 

@@ -44,7 +44,7 @@ export const ListSugarLevelScreen = ({ navigation }) => {
         </View>
       )}
       
-      { (visible && data.length) ? <SugarChart
+      { (visible) ? <SugarChart
         data={data}
         month={month}
       /> : <></> }

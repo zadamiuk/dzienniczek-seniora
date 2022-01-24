@@ -45,7 +45,7 @@ export const ListBloodPressureScreen = ({ navigation }) => {
         </View>
       )}
       
-      { (visible && data.length) ? <BloodPressureChart
+      { (visible) ? <BloodPressureChart
         data={data}
         month={month}
       /> : <></> }

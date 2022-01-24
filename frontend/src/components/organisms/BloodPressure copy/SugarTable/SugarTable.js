@@ -48,7 +48,7 @@ import { NoMeasurement } from '../../../molecules/NoMeasurement/NoMeasurement.co
                 <Text style={styles.title}>Poziom cukru</Text>
               </DataTable.Title>
             </DataTable.Header>
-            { ((data.length && isAnyFilteredData) || month === 0)
+            { ((data.length && isAnyFilteredData) || (month === 0 && data.length))
               ? SugarTable() 
               : <NoMeasurement 
                   type="sugar" 

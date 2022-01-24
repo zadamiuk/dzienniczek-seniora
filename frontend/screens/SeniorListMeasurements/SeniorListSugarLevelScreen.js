@@ -56,7 +56,7 @@ export const SeniorListSugarScreen = ({ route, navigation }) => {
       </View>
     )}
     
-    { (visible && data.length) ? <SugarChart
+    { (visible) ? <SugarChart
       data={data}
       month={month}
     /> : <></> }

@@ -57,7 +57,7 @@ export const SeniorListWeightScreen = ({ route, navigation }) => {
       </View>
     )}
     
-    { (visible && data.length) ? <WeightChart
+    { (visible) ? <WeightChart
       data={data}
       month={month}
     /> : <></> }

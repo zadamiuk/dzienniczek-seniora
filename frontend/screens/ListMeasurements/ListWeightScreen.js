@@ -45,7 +45,7 @@ export const ListWeightScreen = ({ navigation }) => {
         </View>
       )}
       
-      { (visible && data.length) ? <WeightChart
+      { (visible) ? <WeightChart
         data={data}
         month={month}
       /> : <></> }

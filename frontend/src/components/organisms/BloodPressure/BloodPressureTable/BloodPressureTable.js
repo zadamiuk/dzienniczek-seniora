@@ -61,7 +61,7 @@ import { NoMeasurement } from '../../../molecules/NoMeasurement/NoMeasurement.co
                 <Text style={styles.title}>Puls</Text>
               </DataTable.Title>
             </DataTable.Header>
-            { ((data.length && isAnyFilteredData) || month === 0)
+            { ((data.length && isAnyFilteredData) || (month === 0 && data.length ))
               ? BloodPressureTable() 
               : <NoMeasurement 
                   type="blood-pressure" 
