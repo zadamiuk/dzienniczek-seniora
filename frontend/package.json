@@ -7,7 +7,8 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "prettier": "prettier \"src/**/*.js\""
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "~1.15.0",
@@ -46,9 +47,15 @@
     "jest": "^26.6.3",
     "jetifier": "^2.0.0",
     "metro-react-native-babel-preset": "^0.66.2",
+    "prettier": "^2.5.1",
     "react-test-renderer": "17.0.2"
   },
   "jest": {
     "preset": "react-native"
+  },
+  "prettier": {
+    "jsxBracketSameLine": true,
+    "semi": false,
+    "singleQuote": true
   }
 }
