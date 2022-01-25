@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
   root: {
@@ -7,12 +7,12 @@ export const styles = StyleSheet.create({
     backgroundColor: '#1AA7EC',
     borderRadius: 5,
     padding: 10,
-    opacity: 0.9
+    opacity: 0.9,
   },
   button: {
     fontWeight: '400',
     fontSize: 20,
     color: 'white',
-    textAlign: 'center'
+    textAlign: 'center',
   },
-});
+})

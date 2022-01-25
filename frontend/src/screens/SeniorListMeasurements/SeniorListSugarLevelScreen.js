@@ -34,6 +34,7 @@ export const SeniorListSugarScreen = ({ route, navigation }) => {
     setMonth(number)
     setExpanded(false)
   }
+  
   return (
     <ScrollView>
       <View style={styles.view}>
@@ -43,7 +44,8 @@ export const SeniorListSugarScreen = ({ route, navigation }) => {
           <View style={styles.buttonContainer}>
             <Pressable
               onPress={() => setVisible(!visible)}
-              style={styles.buttonVisible}>
+              style={styles.buttonVisible}
+            >
               <Text style={styles.buttonTextVisible}>Ukryj wykresy</Text>
             </Pressable>
           </View>
@@ -51,7 +53,8 @@ export const SeniorListSugarScreen = ({ route, navigation }) => {
           <View style={styles.buttonContainer}>
             <Pressable
               onPress={() => setVisible(!visible)}
-              style={styles.buttonInvisible}>
+              style={styles.buttonInvisible}
+            >
               <Text style={styles.buttonTextInvisible}>Pokaż wykresy</Text>
             </Pressable>
           </View>

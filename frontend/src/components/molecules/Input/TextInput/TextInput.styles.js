@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
   root: {
@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
     textAlign: 'left',
     marginTop: 15,
     marginBottom: 10,
-    color: 'black'
+    color: 'black',
   },
   input: {
     fontSize: 18,
@@ -18,5 +18,5 @@ export const styles = StyleSheet.create({
     maxHeight: 70,
     minWidth: 300,
     borderRadius: 5,
-  }
-});
+  },
+})

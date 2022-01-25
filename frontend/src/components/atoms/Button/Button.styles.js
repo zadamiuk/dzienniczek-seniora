@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
   root: {
@@ -13,6 +13,6 @@ export const styles = StyleSheet.create({
     fontWeight: '400',
     fontSize: 20,
     color: 'white',
-    textAlign: 'center'
+    textAlign: 'center',
   },
-});
+})

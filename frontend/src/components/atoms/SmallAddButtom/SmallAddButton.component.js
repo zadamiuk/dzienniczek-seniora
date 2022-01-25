@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { Pressable, Text } from 'react-native';
+import * as React from 'react'
+import { Pressable, Text } from 'react-native'
 import { styles } from './SmallAddButton.styles'
 
 export const SmallAddButton = ({ label, onPress }) => {
@@ -7,5 +7,5 @@ export const SmallAddButton = ({ label, onPress }) => {
     <Pressable onPress={onPress} style={styles.root}>
       <Text style={styles.button}>{label}</Text>
     </Pressable>
-  );
-};
+  )
+}

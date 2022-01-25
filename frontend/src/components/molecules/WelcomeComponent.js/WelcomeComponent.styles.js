@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
   name: {
@@ -16,5 +16,5 @@ export const styles = StyleSheet.create({
   root: {
     alignItems: 'center',
     marginTop: 50,
-  }
-});
+  },
+})

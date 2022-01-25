@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
   time: {
@@ -6,6 +6,6 @@ export const styles = StyleSheet.create({
     fontWeight: '600',
     alignItems: 'center',
     color: 'black',
-    marginBottom: 30
+    marginBottom: 30,
   },
-});
+})
