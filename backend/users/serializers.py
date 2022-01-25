@@ -8,7 +8,7 @@ class CustomUserSerializer(serializers.ModelSerializer):
     name = serializers.CharField(required=True)
     password = serializers.CharField(min_length=8, write_only=True)
     supervisor_id = serializers.SlugRelatedField(
-        allow_null=True, 
+        allow_null=True,
         required=False,
         slug_field="id",
         queryset=CustomUser.objects.all(),
@@ -16,7 +16,8 @@ class CustomUserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CustomUser
-        fields = ('id', 'email', 'name', 'password', 'is_active', 'supervisor_id', 'measurement_hour', 'measurement_minutes')
+        fields = ('id', 'email', 'name', 'password', 'is_active',
+                  'supervisor_id', 'measurement_hour', 'measurement_minutes')
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):

@@ -40,12 +40,15 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(_('email address'), unique=True)
     name = models.CharField(max_length=150)
     birth_date = models.DateTimeField(null=True)
-    supervisor_id = models.ForeignKey('self', on_delete=models.SET_NULL, null=True)
+    supervisor_id = models.ForeignKey(
+        'self', on_delete=models.SET_NULL, null=True)
     is_superuser = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=False)
-    measurement_hour = models.PositiveSmallIntegerField(null=True, default=None)
-    measurement_minutes = models.PositiveSmallIntegerField(null=True, default=None)
+    measurement_hour = models.PositiveSmallIntegerField(
+        null=True, default=None)
+    measurement_minutes = models.PositiveSmallIntegerField(
+        null=True, default=None)
 
     objects = CustomAccountManager()
 

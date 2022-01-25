@@ -6,11 +6,12 @@ from users.models import CustomUser
 
 class BloodPressureSerializer(serializers.ModelSerializer):
     user = serializers.SlugRelatedField(
-        allow_null=False, 
+        allow_null=False,
         required=True,
         slug_field="id",
         queryset=CustomUser.objects.all(),
     )
+
     class Meta:
         model = BloodPressure
         fields = ['id', 'user', 'date', 'systolic', 'diastolic', 'pulse']
@@ -19,11 +20,12 @@ class BloodPressureSerializer(serializers.ModelSerializer):
 
 class SugarSerializer(serializers.ModelSerializer):
     user = serializers.SlugRelatedField(
-        allow_null=False, 
+        allow_null=False,
         required=True,
         slug_field="id",
         queryset=CustomUser.objects.all(),
     )
+
     class Meta:
         model = Sugar
         fields = ('id', 'user', 'date', 'level')
@@ -31,11 +33,12 @@ class SugarSerializer(serializers.ModelSerializer):
 
 class WeightSerializer(serializers.ModelSerializer):
     user = serializers.SlugRelatedField(
-        allow_null=False, 
+        allow_null=False,
         required=True,
         slug_field="id",
         queryset=CustomUser.objects.all(),
     )
+
     class Meta:
         model = Weight
         fields = ('id', 'user', 'date', 'weight_value')

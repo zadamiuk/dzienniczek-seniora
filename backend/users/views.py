@@ -9,6 +9,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 from .models import CustomUser
 from core.helpers import get_user_id
 
+
 class CustomUserCreate(APIView):
     permission_classes = [AllowAny]
 
@@ -35,15 +36,15 @@ class YourSupervisor(APIView):
             supervisor = CustomUser.objects.get(pk=user.supervisor_id.pk)
             serializer = CustomUserSerializer(supervisor, many=False)
             return Response(serializer.data)
-        else: 
+        else:
             return Response({'name': 'Brak opiekuna', 'email': ''})
-
 
     def patch(self, request, format=None):
         user = CustomUser.objects.get(pk=get_user_id(self.request))
         try:
-            supervisor = CustomUser.objects.get(email=request.data['supervisor_email'])
-            data = { 'supervisor_id': supervisor.pk }
+            supervisor = CustomUser.objects.get(
+                email=request.data['supervisor_email'])
+            data = {'supervisor_id': supervisor.pk}
         except CustomUser.DoesNotExist:
             return Response('Nie znaleziono opiekuna z podanym adresem email', status=status.HTTP_400_BAD_REQUEST)
         serializer = CustomUserSerializer(user, data=data, partial=True)
@@ -58,7 +59,8 @@ class AddSchedule(APIView):
 
     def patch(self, request, format=None):
         user = CustomUser.objects.get(pk=get_user_id(self.request))
-        serializer = CustomUserSerializer(user, data=request.data, partial=True)
+        serializer = CustomUserSerializer(
+            user, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)

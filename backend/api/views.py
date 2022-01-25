@@ -10,6 +10,7 @@ from core.helpers import get_user_id
 from rest_framework.views import APIView
 from datetime import date
 
+
 def custom_post(self, request, serializer_class):
     request_data = {'user': get_user_id(self.request)}
     request_data.update(request.data)
@@ -20,15 +21,18 @@ def custom_post(self, request, serializer_class):
     else:
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
 def custom_get_queryset(self, model):
     if get_user_id(self.request):
         return model.objects.filter(user_id=get_user_id(self.request)).reverse()
     else:
         return []
 
+
 def custom_senior_list_queryset(self, model):
     try:
-        CustomUser.objects.get(pk=self.kwargs['pk'], supervisor_id=get_user_id(self.request))
+        CustomUser.objects.get(
+            pk=self.kwargs['pk'], supervisor_id=get_user_id(self.request))
     except CustomUser.DoesNotExist:
         return []
     return model.objects.filter(user_id=self.kwargs['pk'])
@@ -50,7 +54,7 @@ class BloodPressureList(generics.ListCreateAPIView):
     serializer_class = BloodPressureSerializer
 
     def get_queryset(self):
-       return custom_get_queryset(self, BloodPressure)
+        return custom_get_queryset(self, BloodPressure)
 
     def post(self, request):
         return custom_post(self=self, request=request, serializer_class=BloodPressureSerializer)
@@ -67,7 +71,7 @@ class WeightList(generics.ListCreateAPIView):
     serializer_class = WeightSerializer
 
     def get_queryset(self):
-       return custom_get_queryset(self, Weight)
+        return custom_get_queryset(self, Weight)
 
     def post(self, request):
         return custom_post(self=self, request=request, serializer_class=WeightSerializer)
@@ -84,11 +88,10 @@ class SugarList(generics.ListCreateAPIView):
     serializer_class = SugarSerializer
 
     def get_queryset(self):
-       return custom_get_queryset(self, Sugar)
+        return custom_get_queryset(self, Sugar)
 
     def post(self, request):
         return custom_post(self=self, request=request, serializer_class=SugarSerializer)
-
 
 
 class SugarDetail(generics.RetrieveDestroyAPIView, MeasurementPermission):
