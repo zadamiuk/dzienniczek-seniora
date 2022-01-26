@@ -1,15 +1,14 @@
 import React, { useState } from 'react'
 import { styles } from './SeniorListMeasurements.styles'
-import { GetSeniorWeightList } from '../../services'
-import { DataTable } from 'react-native-paper'
+import { GetSeniorWeightList } from '../../../services'
 import { View, ScrollView, Pressable, Text } from 'react-native'
-import { ProfileCard } from '../../src/components/organisms/ProfileCard/ProfileCard'
-import { WeightChart } from '../../src/components/organisms/BloodPressure copy 2/WeightGraph/WeightGraph'
-import { WeightTableComponent } from '../../src/components/organisms/BloodPressure copy 2/WeightTable/WeightTable'
-import { capitalizeFirstLetter } from '../../config/helpers'
+import { ProfileCard } from '../../../src/components/organisms/ProfileCard/ProfileCard'
+import { WeightChart } from '../../../src/components/organisms/Weight/WeightGraph/WeightGraph'
+import { WeightTableComponent } from '../../../src/components/organisms/Weight/WeightTable/WeightTable'
+import { capitalizeFirstLetter } from '../../../config/helpers'
 import { useIsFocused } from '@react-navigation/native'
 import { useEffect } from 'react'
-import { MonthPicker } from '../../src/components/organisms/MonthPicker/MonthPicker'
+import { MonthPicker } from '../../../src/components/organisms/MonthPicker/MonthPicker'
 
 export const SeniorListWeightScreen = ({ route, navigation }) => {
   const { id, name, email } = route.params

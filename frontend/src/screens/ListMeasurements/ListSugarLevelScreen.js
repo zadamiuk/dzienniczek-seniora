@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { GetSugarLevelList } from '../../services'
+import { GetSugarLevelList } from '../../../services'
 import { View, ScrollView, Pressable, Text } from 'react-native'
-import { SugarTableComponent } from '../../src/components/organisms/BloodPressure copy/SugarTable/SugarTable'
-import { SugarChart } from '../../src/components/organisms/BloodPressure copy/SugarGraph/SugarGraph'
+import { SugarTableComponent } from '../../../src/components/organisms/Sugar/SugarTable/SugarTable'
+import { SugarChart } from '../../../src/components/organisms/Sugar/SugarGraph/SugarGraph'
 import { useIsFocused } from '@react-navigation/native'
 import { useEffect } from 'react'
-import { MonthPicker } from '../../src/components/organisms/MonthPicker/MonthPicker'
+import { MonthPicker } from '../../../src/components/organisms/MonthPicker/MonthPicker'
 import { styles } from './ListMeasurements.styles'
 
 export const ListSugarLevelScreen = ({ navigation }) => {

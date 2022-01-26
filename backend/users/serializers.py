@@ -47,3 +47,5 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         token['hour'] = user.measurement_hour
         token['minutes'] = user.measurement_minutes
         return token
+
+

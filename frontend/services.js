@@ -82,7 +82,7 @@ export const Login = ( payload, navigation ) => {
 
       const refreshToken = response.data.refresh;
       const accessToken = response.data.access;
-
+      
       const token = {
         access: accessToken,
         refresh: refreshToken
@@ -95,8 +95,8 @@ export const Login = ( payload, navigation ) => {
       storeStringValueInLocalStorage('schedule_hour', hour.toString())
       storeStringValueInLocalStorage('schedule_minutes', minutes.toString())
   
-      successToast('Pomyślnie zalogowano.')
-      navigation.navigate('Home')
+      successToast('Pomyślnie zalogowano.') 
+      navigation.navigate('Home') 
     })
     .catch(error => {
       if (!payload.email) {

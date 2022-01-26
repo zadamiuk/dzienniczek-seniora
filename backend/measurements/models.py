@@ -33,8 +33,8 @@ class Sugar(Measurement):
 
 
 class Weight(Measurement):
-    weight_value = models.PositiveSmallIntegerField(blank=False, default=0, validators=[
-                                                    MinValueValidator(10), MaxValueValidator(300)])
+    weight_value = models.DecimalField(decimal_places=2,max_digits=5, blank=False, default=0, validators=[
+                                                    MinValueValidator(20), MaxValueValidator(250)])
 
     def __str__(self):
         return str(self.weight_value)

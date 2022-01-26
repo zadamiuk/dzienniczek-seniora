@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { GetWeightList } from '../../services'
+import { GetWeightList } from '../../../services'
 import { View, ScrollView, Pressable, Text } from 'react-native'
-import { WeightChart } from '../../src/components/organisms/BloodPressure copy 2/WeightGraph/WeightGraph'
-import { WeightTableComponent } from '../../src/components/organisms/BloodPressure copy 2/WeightTable/WeightTable'
+import { WeightChart } from '../../../src/components/organisms/Weight/WeightGraph/WeightGraph'
+import { WeightTableComponent } from '../../../src/components/organisms/Weight/WeightTable/WeightTable'
 import { useIsFocused } from '@react-navigation/native'
 import { useEffect } from 'react'
-import { MonthPicker } from '../../src/components/organisms/MonthPicker/MonthPicker'
+import { MonthPicker } from '../../../src/components/organisms/MonthPicker/MonthPicker'
 import { styles } from './ListMeasurements.styles'
 
 export const ListWeightScreen = ({ navigation }) => {

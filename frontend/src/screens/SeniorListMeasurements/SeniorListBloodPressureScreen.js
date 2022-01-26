@@ -1,15 +1,14 @@
 import React, { useState } from 'react'
 import { styles } from './SeniorListMeasurements.styles'
-import { GetSeniorBloodPressureList } from '../../services'
-import { DataTable } from 'react-native-paper'
+import { GetSeniorBloodPressureList } from '../../../services'
 import { View, ScrollView, Pressable, Text } from 'react-native'
-import { ProfileCard } from '../../src/components/organisms/ProfileCard/ProfileCard'
-import { BloodPressureChart } from '../../src/components/organisms/BloodPressure/BloodPressureGraph/BloodPressureGraph'
-import { BloodPressureTableComponent } from '../../src/components/organisms/BloodPressure/BloodPressureTable/BloodPressureTable'
-import { capitalizeFirstLetter } from '../../config/helpers'
+import { ProfileCard } from '../../../src/components/organisms/ProfileCard/ProfileCard'
+import { BloodPressureChart } from '../../../src/components/organisms/BloodPressure/BloodPressureGraph/BloodPressureGraph'
+import { BloodPressureTableComponent } from '../../../src/components/organisms/BloodPressure/BloodPressureTable/BloodPressureTable'
+import { capitalizeFirstLetter } from '../../../config/helpers'
 import { useIsFocused } from '@react-navigation/native'
 import { useEffect } from 'react'
-import { MonthPicker } from '../../src/components/organisms/MonthPicker/MonthPicker'
+import { MonthPicker } from '../../../src/components/organisms/MonthPicker/MonthPicker'
 
 export const SeniorListBloodPressureScreen = ({ route, navigation }) => {
   const { id, name, email } = route.params

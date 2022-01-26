@@ -1,8 +1,8 @@
 import React from 'react'
 import { View, Text } from 'react-native'
-import { CustomButton } from '../../src/components/atoms/Button/Button.component'
-import { CustomOutlinedButton } from '../../src/components/atoms/OutlinedButton/OutlinedButton.component'
-import { Logout } from '../../services'
+import { CustomButton } from '../../../src/components/atoms/Button/Button.component'
+import { CustomOutlinedButton } from '../../../src/components/atoms/OutlinedButton/OutlinedButton.component'
+import { Logout } from '../../../services'
 
 export const SettingsScreen = ({ navigation }) => {
   const onLogout = () => {

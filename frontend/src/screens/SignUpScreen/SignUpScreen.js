@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { ScrollView, View, Image } from 'react-native'
 import { styles } from './SignUpScreen.styles'
-import { CustomTextInput } from '../../src/components/molecules/Input/TextInput/TextInput.component'
-import { CustomButton } from '../../src/components/atoms/Button/Button.component'
-import { Register } from '../../services'
+import { CustomTextInput } from '../../../src/components/molecules/Input/TextInput/TextInput.component'
+import { CustomButton } from '../../../src/components/atoms/Button/Button.component'
+import { Register } from '../../../services'
 import { HelperText } from 'react-native-paper'
 
 export const SignUpScreen = ({ navigation }) => {

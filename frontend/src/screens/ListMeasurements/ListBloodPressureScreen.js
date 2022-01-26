@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { View, ScrollView, Pressable, Text } from 'react-native'
-import { GetBloodPressureList } from '../../services'
-import { BloodPressureTableComponent } from '../../src/components/organisms/BloodPressure/BloodPressureTable/BloodPressureTable'
-import { BloodPressureChart } from '../../src/components/organisms/BloodPressure/BloodPressureGraph/BloodPressureGraph'
+import { GetBloodPressureList } from '../../../services'
+import { BloodPressureTableComponent } from '../../../src/components/organisms/BloodPressure/BloodPressureTable/BloodPressureTable'
+import { BloodPressureChart } from '../../../src/components/organisms/BloodPressure/BloodPressureGraph/BloodPressureGraph'
 import { useIsFocused } from '@react-navigation/native'
 import { useEffect } from 'react'
-import { MonthPicker } from '../../src/components/organisms/MonthPicker/MonthPicker'
+import { MonthPicker } from '../../../src/components/organisms/MonthPicker/MonthPicker'
 import { styles } from './ListMeasurements.styles'
 
 export const ListBloodPressureScreen = ({ navigation }) => {

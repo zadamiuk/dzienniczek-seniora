@@ -33,7 +33,7 @@ export const BloodPressureTableComponent = ({
       ) {
         return (
           <DataTable.Row key={key}>
-            <DataTable.Cell style={{ flex: 2 }}>
+            <DataTable.Cell style={{ flex: 3 }}>
               <Text style={styles.cell}>{measurement.date}</Text>
             </DataTable.Cell>
             <DataTable.Cell>
@@ -55,7 +55,7 @@ export const BloodPressureTableComponent = ({
     <ScrollView style={styles.scrollView}>
       <DataTable style={styles.dataTable}>
         <DataTable.Header>
-          <DataTable.Title style={{ flex: 2 }}>
+          <DataTable.Title style={{ flex: 3 }}>
             <Text style={styles.title}>Data pomiaru</Text>
           </DataTable.Title>
           <DataTable.Title>

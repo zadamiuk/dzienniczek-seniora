@@ -9,7 +9,8 @@ export const styles = StyleSheet.create({
   card: {
     marginTop: 10,
     width: '90%',
-    height: 160,
+    minHeight: 160,
+    maxHeight: 220,
     alignItems: 'center',
     padding: 20,
     marginBottom: 20,

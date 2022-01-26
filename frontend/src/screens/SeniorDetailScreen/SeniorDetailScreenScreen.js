@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { View } from 'react-native'
 import { Avatar, Card, IconButton } from 'react-native-paper'
 import { styles } from './SeniorDetailScreenScreen.styles'
-import { ProfileCard } from '../../src/components/organisms/ProfileCard/ProfileCard'
-import { capitalizeFirstLetter } from '../../config/helpers'
+import { ProfileCard } from '../../../src/components/organisms/ProfileCard/ProfileCard'
+import { capitalizeFirstLetter } from '../../../config/helpers'
 
 const LeftContent = (props) => (
   <Avatar.Icon

@@ -1,8 +1,8 @@
 import React from 'react'
 import { View } from 'react-native'
-import { CustomText } from '../../src/components/atoms/Text/Text.component'
-import { CustomButton } from '../../src/components/atoms/Button/Button.component'
-import { CustomOutlinedButton } from '../../src/components/atoms/OutlinedButton/OutlinedButton.component'
+import { CustomText } from '../../../src/components/atoms/Text/Text.component'
+import { CustomButton } from '../../../src/components/atoms/Button/Button.component'
+import { CustomOutlinedButton } from '../../../src/components/atoms/OutlinedButton/OutlinedButton.component'
 
 export const GetStartedScreen = ({ navigation }) => {
   return (

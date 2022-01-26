@@ -38,8 +38,7 @@ class CustomAccountManager(BaseUserManager):
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     id = models.AutoField(primary_key=True)
     email = models.EmailField(_('email address'), unique=True)
-    name = models.CharField(max_length=150)
-    birth_date = models.DateTimeField(null=True)
+    name = models.CharField(max_length=50)
     supervisor_id = models.ForeignKey(
         'self', on_delete=models.SET_NULL, null=True)
     is_superuser = models.BooleanField(default=False)

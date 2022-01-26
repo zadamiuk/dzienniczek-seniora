@@ -24,17 +24,19 @@ def custom_post(self, request, serializer_class):
 
 def custom_get_queryset(self, model):
     if get_user_id(self.request):
-        return model.objects.filter(user_id=get_user_id(self.request)).reverse()
+        return model.objects.filter(user_id=get_user_id(self.request))
     else:
         return []
 
 
 def custom_senior_list_queryset(self, model):
     try:
+        # sprawdzenie, czy użytkownik ma jakichkolwiek podopiecznych
         CustomUser.objects.get(
             pk=self.kwargs['pk'], supervisor_id=get_user_id(self.request))
     except CustomUser.DoesNotExist:
-        return []
+        return [] # jeśli nie, zwracana jest pusta tablica
+    # jeśli tak, zwracana jest lista podopiecznych
     return model.objects.filter(user_id=self.kwargs['pk'])
 
 

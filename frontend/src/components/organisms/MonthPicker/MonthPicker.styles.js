@@ -4,8 +4,7 @@ export const styles = StyleSheet.create({
   button: {
     backgroundColor: '#1AA7EC',
     margin: 10,
-    height: 50,
-    width: 250,
+    width: 300,
     alignContent: 'center',
     paddingTop: 5,
     paddingBottom: 5,

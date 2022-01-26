@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import { ScrollView, Touchable, View } from 'react-native'
-import { CustomText } from '../../src/components/atoms/Text/Text.component'
-import { IconButton } from '../../src/components/atoms/IconButton/IconButton.component'
+import { ScrollView, View } from 'react-native'
+import { CustomText } from '../../../src/components/atoms/Text/Text.component'
+import { IconButton } from '../../../src/components/atoms/IconButton/IconButton.component'
 import DateTimePicker from '@react-native-community/datetimepicker'
-import { UpdateSchedule, getStringValueFromLocalStorage } from '../../services'
+import { UpdateSchedule, getStringValueFromLocalStorage } from '../../../services'
 import { styles } from './Notification.styles'
-import { TimeDisplay } from '../../src/components/molecules/TimeDisplay/TimeDisplay.component'
+import { TimeDisplay } from '../../../src/components/molecules/TimeDisplay/TimeDisplay.component'
 
 export const NotificationScreen = ({ navigation }) => {
   const [hour, setHour] = useState(false)

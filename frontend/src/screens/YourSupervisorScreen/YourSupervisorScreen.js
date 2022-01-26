@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import { View, Text } from 'react-native'
 import { Card } from 'react-native-paper'
-import { GetSupervisor, AddSupervisor } from '../../services'
-import { CustomText } from '../../src/components/atoms/Text/Text.component'
-import { CustomButton } from '../../src/components/atoms/Button/Button.component'
-import { CustomTextInput } from '../../src/components/molecules/Input/TextInput/TextInput.component'
+import { GetSupervisor, AddSupervisor } from '../../../services'
+import { CustomText } from '../../../src/components/atoms/Text/Text.component'
+import { CustomButton } from '../../../src/components/atoms/Button/Button.component'
+import { CustomTextInput } from '../../../src/components/molecules/Input/TextInput/TextInput.component'
 import { styles } from './YourSupervisor.styles'
 import { useIsFocused } from '@react-navigation/native'
 import { useEffect } from 'react'
-import { capitalizeFirstLetter } from '../../config/helpers'
+import { capitalizeFirstLetter } from '../../../config/helpers'
 
 export const YourSupervisorScreen = ({ navigation }) => {
   const [data, setData] = useState([])

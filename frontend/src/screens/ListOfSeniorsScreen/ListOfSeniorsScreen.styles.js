@@ -28,9 +28,12 @@ export const styles = StyleSheet.create({
     color: 'black',
   },
   row: {
-    height: 60,
+    height: 70,
   },
   cellIcon: {
     flex: 1,
   },
+  header: {
+    height: 50,
+  }
 })

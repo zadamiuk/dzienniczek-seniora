@@ -4,32 +4,30 @@ import Toast from 'react-native-toast-message';
 import { toastConfig } from './src/components/organisms/Toast/Toast.component';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { GetStartedScreen } from './screens/GetStartedScreen/GetStartedScreen';
-import { SignInScreen } from './screens/SignInScreen/SignInScreen.component';
-import { SignUpScreen } from './screens/SignUpScreen/SignUpScreen.component';
-import { HomeScreen } from './screens/HomeScreen/HomeScreen';
-import { ChooseMeasurementToAddScreen } from './screens/ChooseMeasurementToAddScreen/ChooseMeasurementToAddScreen';
-import { ChooseMeasurementToListScreen } from './screens/ChooseMeasurementToListScreen/ChooseMeasurementToListScreen';
-import { AddBloodPressureScreen } from './screens/AddMeasurements/AddBloodPressureScreen';
-import { AddSugarLevelScreen } from './screens/AddMeasurements/AddSugarLevelScreen';
-import { AddWeightScreen } from './screens/AddMeasurements/AddWeightScreen';
-import { ListBloodPressureScreen } from './screens/ListMeasurements/ListBloodPressureScreen';
-import { ListSugarLevelScreen } from './screens/ListMeasurements/ListSugarLevelScreen';
-import { ListWeightScreen } from './screens/ListMeasurements/ListWeightScreen';
-import { ListOfSeniorsScreen } from './screens/ListOfSeniorsScreen/ListOfSeniorsScreen';
-import { SeniorDetailScreen } from './screens/SeniorDetailScreen/SeniorDetailScreenScreen';
-import { SeniorListWeightScreen } from './screens/SeniorListMeasurements/SeniorListWeightScreen';
-import { SeniorListBloodPressureScreen } from './screens/SeniorListMeasurements/SeniorListBloodPressureScreen';
-import { SeniorListSugarScreen } from './screens/SeniorListMeasurements/SeniorListSugarLevelScreen';
-import { NotificationScreen } from './screens/NotificationScreen/NotificationScreen';
-import { YourSupervisorScreen } from './screens/YourSupervisorScreen/YourSupervisorScreen';
-import { SettingsScreen } from './screens/SettingsScreen/SettingsScreen';
-import { Test } from './screens/Test';
+import { GetStartedScreen } from './src/screens/GetStartedScreen/GetStartedScreen';
+import { SignInScreen } from './src/screens/SignInScreen/SignInScreen';
+import { SignUpScreen } from './src/screens/SignUpScreen/SignUpScreen';
+import { HomeScreen } from './src/screens/HomeScreen/HomeScreen';
+import { ChooseMeasurementToAddScreen } from './src/screens/ChooseMeasurementToAddScreen/ChooseMeasurementToAddScreen';
+import { ChooseMeasurementToListScreen } from './src/screens/ChooseMeasurementToListScreen/ChooseMeasurementToListScreen';
+import { AddBloodPressureScreen } from './src/screens/AddMeasurements/AddBloodPressureScreen';
+import { AddSugarLevelScreen } from './src/screens/AddMeasurements/AddSugarLevelScreen';
+import { AddWeightScreen } from './src/screens/AddMeasurements/AddWeightScreen';
+import { ListBloodPressureScreen } from './src/screens/ListMeasurements/ListBloodPressureScreen';
+import { ListSugarLevelScreen } from './src/screens/ListMeasurements/ListSugarLevelScreen';
+import { ListWeightScreen } from './src/screens/ListMeasurements/ListWeightScreen';
+import { ListOfSeniorsScreen } from './src/screens/ListOfSeniorsScreen/ListOfSeniorsScreen';
+import { SeniorDetailScreen } from './src/screens/SeniorDetailScreen/SeniorDetailScreenScreen';
+import { SeniorListWeightScreen } from './src/screens/SeniorListMeasurements/SeniorListWeightScreen';
+import { SeniorListBloodPressureScreen } from './src/screens/SeniorListMeasurements/SeniorListBloodPressureScreen';
+import { SeniorListSugarScreen } from './src/screens/SeniorListMeasurements/SeniorListSugarLevelScreen';
+import { NotificationScreen } from './src/screens/NotificationScreen/NotificationScreen';
+import { YourSupervisorScreen } from './src/screens/YourSupervisorScreen/YourSupervisorScreen';
+import { SettingsScreen } from './src/screens/SettingsScreen/SettingsScreen';
 
 import { ScheduledPushNotification } from './src/components/organisms/Notifications/PushNotifications';
 
 const Stack = createNativeStackNavigator();
-
 
 export default function App() {
   ScheduledPushNotification();
@@ -53,7 +51,6 @@ export default function App() {
         <Stack.Screen name="SeniorBloodPressureList" component={SeniorListBloodPressureScreen} options={{ title: "Lista ciśnienia podopiecznego" }} />
         <Stack.Screen name="SeniorSugarList" component={SeniorListSugarScreen} options={{ title: "Lista cukru podopiecznego" }} />
         <Stack.Screen name="SeniorWeightList" component={SeniorListWeightScreen} options={{ title: "Lista wagi podopiecznego" }} />
-        <Stack.Screen name="Test" component={Test} options={{ title: "Lista wagi podopiecznego" }} />
         <Stack.Screen name="Notification" component={NotificationScreen} options={{ title: "Przypomnienie" }} />
         <Stack.Screen name="YourSupervisor" component={YourSupervisorScreen} options={{ title: "Twój opiekun" }} />
         <Stack.Screen name="Settings" component={SettingsScreen} options={{ title: "Ustawienia" }} />

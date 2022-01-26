@@ -37,3 +37,5 @@ urlpatterns = [
     path('supervisor/users/<int:pk>/sugar',
          SeniorsListSugar.as_view(), name='senior-sugar-list')
 ]
+
+
