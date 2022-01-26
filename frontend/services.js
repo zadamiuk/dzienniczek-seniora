@@ -146,6 +146,9 @@ export const Logout = ( navigation ) => {
         axios.defaults.headers.common.Authorization = null;
         removeStringValueFromLocalStorage('refresh')
         removeStringValueFromLocalStorage('name')
+        removeStringValueFromLocalStorage('hour')
+        removeStringValueFromLocalStorage('minutes')
+
       })
       .catch(error => console.log(error));
   };

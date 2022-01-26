@@ -17,6 +17,7 @@ export const AddSugarLevelScreen = ({ navigation }) => {
     AddSugar({ payload, navigation })
   }
 
+    
   const sugarCheck = () => {
     return (level < MIN_SUGAR || level > MAX_SUGAR) && level !== ''
   }

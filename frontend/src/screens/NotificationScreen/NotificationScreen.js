@@ -67,11 +67,14 @@ export const NotificationScreen = ({ navigation }) => {
             value={currentSchedule}
             mode="time"
             is24Hour={true}
-            display="default"
+            display="clock"
+            minuteInterval={5}
             onChange={(event, date) => {
-              setHour(date?.getHours())
-              setMinutes(date?.getMinutes())
-              onAdd(hour, minutes)
+              if(event.type == "set") {
+                setHour(date?.getHours())
+                setMinutes(date?.getMinutes())
+                onAdd(hour, minutes)
+              }
             }}
           />
         )}

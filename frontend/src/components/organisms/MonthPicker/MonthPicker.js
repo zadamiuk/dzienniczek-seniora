@@ -30,12 +30,13 @@ export const MonthPicker = (expanded, setMonthToDisplay, setExpanded) => {
         titleStyle={styles.label}
       >
         <ScrollView style={styles.scroll}>
-          {MONTHS.map((month) => {
+          {MONTHS.map((month, key) => {
             return (
               <List.Item
                 style={styles.item}
                 titleStyle={styles.itemTitle}
                 title={month}
+                key={key}
                 onPress={() => {
                   setMonthToDisplay(MONTHS.indexOf(month) + 1)
                   setLabel(month)
