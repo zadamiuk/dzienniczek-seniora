@@ -148,7 +148,6 @@ export const Logout = ( navigation ) => {
         removeStringValueFromLocalStorage('name')
         removeStringValueFromLocalStorage('hour')
         removeStringValueFromLocalStorage('minutes')
-
       })
       .catch(error => console.log(error));
   };

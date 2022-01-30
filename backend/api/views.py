@@ -1,3 +1,4 @@
+from django.http import HttpRequest, HttpResponse
 from rest_framework import generics
 from measurements.models import BloodPressure, Weight, Sugar
 from .serializers import BloodPressureSerializer, SugarSerializer, WeightSerializer
@@ -9,6 +10,7 @@ from rest_framework import status
 from core.helpers import get_user_id
 from rest_framework.views import APIView
 from datetime import date
+from django.utils.html import escape
 
 
 def custom_post(self, request, serializer_class):
