@@ -14,7 +14,7 @@ from django.utils.html import escape
 
 
 def custom_post(self, request, serializer_class):
-    request_data = {'user': get_user_id(self.request)}
+    request_data = {'user': get_user_id(self.request)} # serializer needs author's id
     request_data.update(request.data)
     serializer = serializer_class(data=request_data)
     if serializer.is_valid():
@@ -33,12 +33,10 @@ def custom_get_queryset(self, model):
 
 def custom_senior_list_queryset(self, model):
     try:
-        # sprawdzenie, czy użytkownik ma jakichkolwiek podopiecznych
         CustomUser.objects.get(
             pk=self.kwargs['pk'], supervisor_id=get_user_id(self.request))
     except CustomUser.DoesNotExist:
-        return [] # jeśli nie, zwracana jest pusta tablica
-    # jeśli tak, zwracana jest lista podopiecznych
+        return []
     return model.objects.filter(user_id=self.kwargs['pk'])
 
 
