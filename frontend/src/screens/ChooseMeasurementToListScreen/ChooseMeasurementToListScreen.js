@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 import { CustomButton } from '../../../src/components/atoms/Button/Button.component'
 import { CustomText } from '../../../src/components/atoms/Text/Text.component'
 

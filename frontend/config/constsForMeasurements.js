@@ -1,5 +1,5 @@
-export const MIN_WEIGHT = 10;
-export const MAX_WEIGHT = 300;
+export const MIN_WEIGHT = 20;
+export const MAX_WEIGHT = 250;
 
 export const MIN_SUGAR = 10;
 export const MAX_SUGAR = 300;

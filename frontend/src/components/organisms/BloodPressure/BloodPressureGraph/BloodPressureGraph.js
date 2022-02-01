@@ -47,8 +47,6 @@ export const BloodPressureChart = ({ data, month }) => {
         )
       : pulseDataAll
 
-  console.log(formattedDataDia)
-
   const height = 200
   const width = 420
 

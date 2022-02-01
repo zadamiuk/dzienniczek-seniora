@@ -16,6 +16,7 @@ export const HomeScreen = ({ navigation }) => {
     GetHomePage(setData, navigation)
   }, [isFocused])
 
+
   return (
     <View style={styles.root}>
       {data.name && <WelcomeComponent name={data.name} />}

@@ -50,8 +50,8 @@ export const refreshToken = async ({ navigation }) => {
 export const storeStringValueInLocalStorage = async (key, value) => {
   try {
     await AsyncStorage.setItem(key, value)
-  } catch (e) {
-    console.log(e);
+  } catch (error) {
+    console.log(error);
   }
 }
 
@@ -59,16 +59,16 @@ export const getStringValueFromLocalStorage = async (key) => {
   try {
     const res = await AsyncStorage.getItem(key);
     return res;
-  } catch(e) {
-    console.log(e);
+  } catch(error) {
+    console.log(error);
   }
 }
 
 export const removeStringValueFromLocalStorage = async (key) => {
   try {
     await AsyncStorage.removeItem(key)
-  } catch(e) {
-    console.log(e);
+  } catch(error) {
+    console.log(error);
   }
 }
 
@@ -384,7 +384,6 @@ export const GetSupervisor = async (setData, navigation) => {
   .get(YOUR_SUPERVISOR_URL, config)
   .then(response => {
     setData(response.data)
-    console.log(response.data)
   })
   .catch(error => {
     if (error?.response?.status === 500) {

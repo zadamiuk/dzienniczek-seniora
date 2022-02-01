@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { DataTable } from 'react-native-paper'
 import { styles } from './BloodPressureTable.styles'
-import { View, ScrollView, Text } from 'react-native'
+import { ScrollView, Text } from 'react-native'
 import { NoMeasurement } from '../../../molecules/NoMeasurement/NoMeasurement.component'
 
 export const BloodPressureTableComponent = ({

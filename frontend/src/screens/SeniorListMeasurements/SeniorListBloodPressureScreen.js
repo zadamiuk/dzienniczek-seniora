@@ -21,8 +21,6 @@ export const SeniorListBloodPressureScreen = ({ route, navigation }) => {
   const [data, setData] = useState([])
   const isFocused = useIsFocused()
 
-  console.log(data)
-
   useEffect(() => {
     GetSeniorBloodPressureList(seniorId, setData, navigation)
   }, [isFocused])

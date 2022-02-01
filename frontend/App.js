@@ -33,7 +33,7 @@ export default function App() {
   ScheduledPushNotification();
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home" gestureEnabled={false}>
+      <Stack.Navigator initialRouteName="GetStarted" gestureEnabled={false}>
         <Stack.Screen name="GetStarted" component={GetStartedScreen} options={{ title: "Twój dzienniczek", headerLeft: () => <></>}}  />
         <Stack.Screen name="SignIn" component={SignInScreen} options={{ title: "Logowanie" }} />
         <Stack.Screen name="SignUp" component={SignUpScreen} options={{ title: "Rejestracja" }} />
